@@ -324,5 +324,7 @@ public class CountriesService {
 		
 	}	
 	
-
+	public List<DaysInterface> getDaysOfMonth(String countryCode, String year, String month) {
+        return cntryRepo.getDaysOfMonth(countryCode, year, month);
+    }
 }

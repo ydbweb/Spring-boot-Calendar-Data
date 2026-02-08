@@ -111,4 +111,21 @@ class CountriesServiceTest {
         assertEquals(1, result.size());
         assertEquals(mockDate, result.get(0));
     }
+
+    @Test
+    void testGetDaysOfMonth() {
+        // Arrange
+        String countryCode = "US";
+        String year = "2026";
+        String month = "02";
+        DaysInterface mockDay = mock(DaysInterface.class);
+        when(cntryRepo.getDaysOfMonth(eq(countryCode), eq(year), eq(month))).thenReturn(List.of(mockDay));
+
+        // Act
+        List<DaysInterface> result = countriesService.getDaysOfMonth(countryCode, year, month);
+
+        // Assert
+        assertNotNull(result);
+        assertEquals(1, result.size());
+    }
 }

@@ -59,5 +59,9 @@ public interface CountriesRepository extends CrudRepository<Countries, Integer> 
 		     + "co.id=:country_id", 
 	            nativeQuery = true)	
 	Countries findCountry(String country_id);
+	
+	@Query(value = "SELECT * FROM freedays fd WHERE fd.country_id = :countryCode AND YEAR(fd.freedate) = :year AND MONTH(fd.freedate) = :month", 
+	           nativeQuery = true)
+    List<DaysInterface> getDaysOfMonth(String countryCode, String year, String month);
 
 }
